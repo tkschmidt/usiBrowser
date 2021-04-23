@@ -1,7 +1,13 @@
-# comp
-
+# usiBrowser
+A minimal project to quickly browse all available spectra at [PRIDE](https://www.ebi.ac.uk/pride/) via their [SwaggerAPI](https://www.ebi.ac.uk/pride/ws/archive/v2/swagger-ui.html).
+It can help to quickly find USIs.
 ## Project setup
+### Prerequisite
+The node version is controlled by .nvmrc and the following has to be executed once
+
 ```
+nvm use
+nvm install
 npm install
 ```
 
@@ -19,6 +25,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
