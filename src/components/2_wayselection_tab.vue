@@ -3,14 +3,14 @@
   <v-card color="basil">
 
     <v-tabs
-      v-model="tab"
-      background-color="transparent"
-      color="basil"
-      grow
+        v-model="tab"
+        background-color="transparent"
+        color="basil"
+        grow
     >
       <v-tab
-        v-for="item in items"
-        :key="item.title"
+          v-for="item in items"
+          :key="item.title"
       >
         {{ item.title }}
       </v-tab>
@@ -18,14 +18,14 @@
 
     <v-tabs-items v-model="tab">
       <v-tab-item
-        v-for="item in items"
-        :key="item.title"
+          v-for="item in items"
+          :key="item.title"
       >
         <v-card
-          color="basil"
-          flat
+            color="basil"
+            flat
         >
-	<Table v-bind:tableId=item.id v-bind:peptideSequence=item.sequence />
+          <Table v-bind:tableId=item.id v-bind:peptideSequence=item.sequence />
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -33,19 +33,18 @@
 </template>
 
 <script>
- import Table from './Table.vue'
+import Table from './Table.vue'
 
 
 export default {
-	components: {
-		Table
-	},
+  components: {
+    Table,
+  },
   data () {
-      return {
-        tab: null,
-        items: [{'title': 'search1', id: 'use1', sequence:'AEAEAQAEELSFPR'},
-        // {'title': 'search2', id: 'use2', sequence: 'DGNVFTTGFSR'}]
-        {'title': 'search2', id: 'use2', sequence: 'AEAEAQAEELSFPR'}]
-}}
+    return {
+      tab: null,
+      items: [{'title': 'search1', id: 'tab1', sequence:this.$store.state.peptide1},
+        {'title': 'search2', id: 'tab2', sequence: this.$store.state.peptide2}]
+    }}
 }
 </script>

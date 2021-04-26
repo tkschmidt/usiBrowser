@@ -38,7 +38,7 @@
     </v-app-bar>
 
     <v-main>
-<Button/>
+<PeptideSelection/>
   <p>{{ $store.state.combinedUrl }}</p>
   <p>
    <a v-bind:href= $store.state.combinedUrl target="_blank" >dynamic link to USE </a>
@@ -50,14 +50,14 @@
 </template>
 
 <script>
-import Button from './components/Button.vue';
+import PeptideSelection from './components/PeptideSelection.vue';
 import tabs from './components/2_wayselection_tab';
 
 export default {
   name: 'App',
 
   components: {
-    Button,
+    PeptideSelection,
     tabs,
   },
 
