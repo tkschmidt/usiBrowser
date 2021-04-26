@@ -28,7 +28,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://github.com/tkschmidt/usiBrowser"
         target="_blank"
         text
       >
@@ -39,10 +39,14 @@
 
     <v-main>
 <PeptideSelection/>
+      <v-container>
+        <v-row>
   <p>{{ $store.state.combinedUrl }}</p>
-  <p>
+        </v-row>
+        <v-row>
    <a v-bind:href= $store.state.combinedUrl target="_blank" >dynamic link to USE </a>
-</p>
+        </v-row>
+      </v-container>
 <tabs/>
 <p/>
     </v-main>

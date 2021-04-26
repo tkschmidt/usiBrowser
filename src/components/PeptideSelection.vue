@@ -4,29 +4,30 @@
       <v-row>
         <v-col
             cols="12"
-            md="4"
+            md="12"
         >
           <v-text-field
               v-model="title"
-              counter="25"
+              counter="100"
               label="peptide sequence"
               outlined
               @change="toSetPeptide"
           ></v-text-field>
         </v-col>
-        <v-col
-            cols="12"
-            md="4"
-        >
-          <load-button txt='into second' id='tab2'/>
-        </v-col>
-        <v-col
-            cols="12"
-            md="4"
-        >
-          <load-button txt='test123' id='tab1'/>
-        </v-col>
-
+        <v-row>
+          <v-col
+              cols="12"
+              md="6"
+          >
+            <load-button txt='into second' id='tab1'/>
+          </v-col>
+          <v-col
+              cols="12"
+              md="6"
+          >
+            <load-button txt='test123' id='tab2'/>
+          </v-col>
+        </v-row>
       </v-row>
     </v-container>
   </v-form>
