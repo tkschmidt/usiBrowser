@@ -7,25 +7,25 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     // put variables and collections here
-    url: 'https://www.proteomicsdb.org/use/?usi=mzspec:PXD000561:Adult_Frontalcortex_bRP_Elite_85_f09:scan:17555:VLHPLEGAVVIIFK/2&usi_origin=peptideatlas&usibottom=mzspec:PXD015890:18May18_Olson_WT2.raw%20(F001551).mzid_18May18_Olson_WT2.raw_(F001551).MGF:index:6913:AEAEAQAEELSFPR/2&usibottom_origin=pride',
+    url: '',
     use1: '',
     use2: '',
     peptide: '',
     peptide1: 'DGNVFTTGFSR',
-    peptide2: 'DGNVFTTGFSR',
+    peptide2: 'DQNGTWEMESNENFEGYMK',
     combinedUrl: '',
   },
   mutations: {
     setUsi(state, obj) {
-      if(obj["id"] === "use1"){
+      if(obj["id"] === "tab1"){
         state["use1"] = obj["usi"];
       }else{
-        state["use1"] = obj["usi"];
+        state["use2"] = obj["usi"];
       }
-      var url_base =  'https://www.proteomicsdb.org/use/?usi=';
+      var url_base =  'https://www.proteomicsdb.org/use/?';
       state["combinedUrl"] = url_base +
-          state["use1"]  + '&usibottom=' +
-          state["use2"] ;
+          ((state["use1"] !== "")? "usi=" + state["use1"] + "&" : "") +
+          ((state["use2"] !== "")? "usibottom=" + state["use2"]   : "");
 
     },
     setGlobalPeptide(state, obj){

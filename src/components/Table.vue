@@ -59,10 +59,8 @@ export default {
       return this.selected;
     },
     peptideSequenceComputed(){
-      console.log("com[uted");
       var _peptideSequenceComputed;
-      this.doCall()
-      if(this.id === "tab1"){
+      if(this.tableId === "tab1"){
         _peptideSequenceComputed = this.$store.state.peptide1;
       }else{
         _peptideSequenceComputed =  this.$store.state.peptide2;
@@ -73,17 +71,10 @@ export default {
   },
   watch: {
     foo() {
-      console.log(this.peptideSequenceComputed);
-      var usi = this.selected[0]["usi"];
-      console.log(usi);
-      var id = this.id;
+      var id = this.tableId;
+      var usi = typeof this.selected[0] === "undefined"? "": this.selected[0]["usi"];
       this.$store.commit('setUsi', {"id": id, "usi":usi});
     },
-    moreWatch(){
-      console.log(this.$store.state.peptide1);
-      this.doCall("AAAAAAAA");
-
-    }
   },
   methods: {
     doCall(inputVariable) {
@@ -92,10 +83,8 @@ export default {
           .get('https://www.ebi.ac.uk/pride/ws/archive/v2/spectra?peptideSequence=' + inputVariable + '&pageSize=500')
           .then(function (response) {
                 if (typeof response.data._embedded !== 'undefined'){
-                  console.log(response);
                   that.api = response.data._embedded.spectraevidences;
-                  console.log(that.api);
-                  that.$store.commit('setUsi', {"id": that.id, "usi": ''});
+                  that.$store.commit('setUsi', {"id": that.tableId, "usi": ''});
                 }else{
                   that.api = [];
                 }
@@ -104,11 +93,13 @@ export default {
     }
   },
   mounted () {
-    var that = this;
-    this.id = this.tableId;
-    console.log(that.peptideSequence);
-    this.doCall(that.peptideSequence);
-    console.log(this.tableId);
+    var _peptideSequenceComputed = "";
+    if(this.tableId === "tab1"){
+      _peptideSequenceComputed = this.$store.state.peptide1;
+    }else {
+      _peptideSequenceComputed = this.$store.state.peptide2;
+    }
+    this.doCall(_peptideSequenceComputed);
   }
 }
 </script>
