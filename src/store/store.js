@@ -17,7 +17,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setUsi(state, obj) {
-      if(obj["id"] === "tab1"){
+      if(obj["id"] === "search1"){
         state["use1"] = obj["usi"];
       }else{
         state["use2"] = obj["usi"];
@@ -32,7 +32,7 @@ export default new Vuex.Store({
       state["peptide"] = obj;
     },
     setPeptide(state, obj){
-      if(obj["id"]==="tab1"){
+      if(obj["id"]==="search1"){
         state["peptide1"] = state["peptide"]
       }else{
         state["peptide2"] = state["peptide"]

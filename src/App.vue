@@ -29,25 +29,25 @@
 
     <v-main>
       <v-row
-      justify="center"
-      align="center">
-      <v-col
-        cols="6"
-        md="6"
-    >
-      <PeptideSelection/>
-      </v-col>
-          <v-col
-              cols="6"
-              md="6"
-              align="center"
+          justify="center"
+          align="center">
+        <v-col
+            cols="6"
+            md="6"
+        >
+          <PeptideSelection/>
+        </v-col>
+        <v-col
+            cols="6"
+            md="6"
+            align="center"
 
-          >
-            <a v-bind:href= $store.state.combinedUrl target="_blank" class="v-btn" >dynamic link to the Universal Spectrum Explorer (USE) </a>
-          </v-col>
+        >
+          <a v-bind:href= $store.state.combinedUrl target="_blank" class="v-btn" >dynamic link to the Universal Spectrum Explorer (USE) </a>
+        </v-col>
       </v-row>
       <v-row>
-      <tabs/>
+        <tabs/>
       </v-row>
     </v-main>
   </v-app>

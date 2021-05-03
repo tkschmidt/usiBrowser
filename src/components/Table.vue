@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card fluid>
     <v-card-title>
       Data from Pride for {{peptideSequenceComputed}}
       <v-spacer></v-spacer>
@@ -85,7 +85,7 @@ export default {
                 if (typeof response.data._embedded !== 'undefined'){
                   let returnV = response.data._embedded.spectraevidences;
                   that.api = returnV.filter((e)=>{return !e.decoy});
-//                  that.api = response.data._embedded.spectraevidences;
+                  // that.api = response.data._embedded.spectraevidences;
                   that.$store.commit('setUsi', {"id": that.tableId, "usi": ''});
                 }else{
                   that.api = [];

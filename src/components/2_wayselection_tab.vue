@@ -43,8 +43,8 @@ export default {
   data () {
     return {
       tab: null,
-      items: [{'title': 'search1', id: 'tab1', sequence:this.$store.state.peptide1},
-        {'title': 'search2', id: 'tab2', sequence: this.$store.state.peptide2}]
+      items: [{'title': 'search1', id: 'search1', sequence:this.$store.state.peptide1},
+        {'title': 'search2', id: 'search2', sequence: this.$store.state.peptide2}]
     }}
 }
 </script>
