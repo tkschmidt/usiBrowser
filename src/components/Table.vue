@@ -60,7 +60,7 @@ export default {
     },
     peptideSequenceComputed(){
       var _peptideSequenceComputed;
-      if(this.tableId === "tab1"){
+      if(this.tableId === "search1"){
         _peptideSequenceComputed = this.$store.state.peptide1;
       }else{
         _peptideSequenceComputed =  this.$store.state.peptide2;
@@ -96,7 +96,7 @@ export default {
   },
   mounted () {
     var _peptideSequenceComputed = "";
-    if(this.tableId === "tab1"){
+    if(this.tableId === "search1"){
       _peptideSequenceComputed = this.$store.state.peptide1;
     }else {
       _peptideSequenceComputed = this.$store.state.peptide2;
