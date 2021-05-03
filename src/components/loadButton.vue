@@ -1,10 +1,10 @@
 <template>
   <v-btn
       class="ma-2"
-      color="secondary"
+      color="third"
       @click="setPeptide"
       :disabled="!isEnabled"
-  > Load {{this.$store.state.peptide}} into {{this.id}}
+  > Retrieve USIs for peptide "{{this.$store.state.peptide}}" in {{this.id}}
   </v-btn>
 </template>
 
@@ -22,7 +22,7 @@ export default {
       return this.$store.state.peptide.length > 0;
     },
     peptideSequence: ()=>{
-      if(this.id == "tab1"){
+      if(this.id == "search1"){
         return this.$store.state.peptide1;
       }else{
         return this.$store.state.peptide2;

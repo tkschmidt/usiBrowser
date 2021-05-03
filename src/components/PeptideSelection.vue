@@ -11,21 +11,27 @@
               counter="100"
               label="peptide sequence"
               outlined
+              @keypress="toSetPeptide"
               @change="toSetPeptide"
+              @keyup="toSetPeptide"
           ></v-text-field>
         </v-col>
         <v-row>
           <v-col
               cols="12"
-              md="6"
+              md="12"
+              align="center"
+              justify="center"
           >
-            <load-button txt='into second' id='tab1'/>
+            <load-button txt='into second' id='search1'/>
           </v-col>
           <v-col
               cols="12"
-              md="6"
+              md="12"
+              align="center"
+              justify="center"
           >
-            <load-button txt='test123' id='tab2'/>
+            <load-button txt='test123' id='search2'/>
           </v-col>
         </v-row>
       </v-row>
