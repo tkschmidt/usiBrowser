@@ -39,7 +39,7 @@ export default {
     search: '',
     headers: [
       {
-        text: 'Usi',
+        text: 'USI',
         align: 'start',
         sortable: true,
         value: 'usi',
@@ -47,8 +47,8 @@ export default {
       { text: 'PeptideSequence', value: 'peptideSequence' },
       { text: 'Charge', value: 'charge' },
       { text: 'precursorMz', value: 'precursorMZ' },
-      { text: 'valid', value: 'valid' },
-      { text: 'Links', value: 'links.self.href' },
+    //  { text: 'valid', value: 'valid' },
+    //  { text: 'Links', value: 'links.self.href' },
       { text: 'scpre', value: 'attributes[0].value' }
     ],
     api: [],
@@ -83,7 +83,9 @@ export default {
           .get('https://www.ebi.ac.uk/pride/ws/archive/v2/spectra?peptideSequence=' + inputVariable + '&pageSize=500')
           .then(function (response) {
                 if (typeof response.data._embedded !== 'undefined'){
-                  that.api = response.data._embedded.spectraevidences.filter((e)=>{return e.decoy});
+                  let returnV = response.data._embedded.spectraevidences;
+                  that.api = returnV.filter((e)=>{return !e.decoy});
+//                  that.api = response.data._embedded.spectraevidences;
                   that.$store.commit('setUsi', {"id": that.tableId, "usi": ''});
                 }else{
                   that.api = [];
