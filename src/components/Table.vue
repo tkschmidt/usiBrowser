@@ -83,7 +83,7 @@ export default {
           .get('https://www.ebi.ac.uk/pride/ws/archive/v2/spectra?peptideSequence=' + inputVariable + '&pageSize=500')
           .then(function (response) {
                 if (typeof response.data._embedded !== 'undefined'){
-                  that.api = response.data._embedded.spectraevidences;
+                  that.api = response.data._embedded.spectraevidences.filter((e)=>{return e.decoy});
                   that.$store.commit('setUsi', {"id": that.tableId, "usi": ''});
                 }else{
                   that.api = [];
