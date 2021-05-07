@@ -22,7 +22,7 @@ export default {
       return this.$store.state.peptide.length > 0;
     },
     peptideSequence: ()=>{
-      if(this.id == "search1"){
+      if(this.id === "search1"){
         return this.$store.state.peptide1;
       }else{
         return this.$store.state.peptide2;
@@ -32,7 +32,7 @@ export default {
   methods:{
     setPeptide(){
       this.$store.commit('setPeptide', {"id": this.id});
-
+      this.$emit('peptideSet', this.id);
     }
 
   }
