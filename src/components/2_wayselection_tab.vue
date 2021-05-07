@@ -25,26 +25,42 @@
             color="basil"
             flat
         >
-          <Table v-bind:tableId=item.id v-bind:peptideSequence=item.sequence />
+          <Table :ref="'tableRef'+item.id" :tableId="item.id" :peptideSequence="item.sequence" @usiSelected="checkAndEnableNext"/>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
+    <v-btn :disabled="!moveOn" fab color="primary" @click="progress">
+      <v-icon>mdi-arrow-down-bold</v-icon>
+    </v-btn>
+
   </v-card>
 </template>
 
 <script>
 import Table from './Table.vue'
 
-
 export default {
   components: {
     Table,
   },
-  data () {
+  data() {
     return {
+      moveOn: false,
       tab: null,
-      items: [{'title': 'search1', id: 'search1', sequence:this.$store.state.peptide1},
+      items: [{'title': 'search1', id: 'search1', sequence: this.$store.state.peptide1},
         {'title': 'search2', id: 'search2', sequence: this.$store.state.peptide2}]
-    }}
+    }
+  },
+  methods: {
+    checkAndEnableNext() {
+      this.moveOn = this.$store.state.use1 !== "" || this.$store.state.use2 !== "";
+    },
+    progress() {
+      this.$emit("nextStep", null);
+    },
+    resetTable(id) {
+      this.$refs['tableRef'+id].reset();
+    }
+  }
 }
 </script>

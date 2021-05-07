@@ -17,24 +17,24 @@ export default new Vuex.Store({
   },
   mutations: {
     setUsi(state, obj) {
-      if(obj["id"] === "search1"){
+      if (obj["id"] === "search1") {
         state["use1"] = obj["usi"];
-      }else{
+      } else {
         state["use2"] = obj["usi"];
       }
-      var url_base =  'https://www.proteomicsdb.org/use/?';
+      var url_base = 'https://www.proteomicsdb.org/use/?';
       state["combinedUrl"] = url_base +
-          ((state["use1"] !== "")? "usi=" + state["use1"] + "&" : "") +
-          ((state["use2"] !== "")? "usibottom=" + state["use2"]   : "");
+          ((state["use1"] !== "") ? "usi=" + state["use1"] + "&" : "") +
+          ((state["use2"] !== "") ? "usibottom=" + state["use2"] : "");
 
     },
-    setGlobalPeptide(state, obj){
+    setGlobalPeptide(state, obj) {
       state["peptide"] = obj;
     },
-    setPeptide(state, obj){
-      if(obj["id"]==="search1"){
+    setPeptide(state, obj) {
+      if (obj["id"] === "search1") {
         state["peptide1"] = state["peptide"]
-      }else{
+      } else {
         state["peptide2"] = state["peptide"]
       }
     }
